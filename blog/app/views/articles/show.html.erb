@@ -7,7 +7,21 @@
   <strong>Text:</strong>
   <%= @article.text %>
 </p>
+
+<p>
+  <strong>Published at:</strong>
+  <%= @article.published_at %>
+</p>
  
+ <p>
+  <strong>Description:</strong>
+  <%= @article.description %>
+</p>
+ 
+  <p>
+  <strong>Category Id:</strong>
+  <%= @article.category_id %>
+  </p>
 <h2>Comments</h2>
 <%= render @article.comments %>
  

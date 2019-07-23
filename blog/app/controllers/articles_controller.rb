@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-	http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+	http_basic_authenticate_with name: "shivam", password: "secret", except: [:index, :show]
 
 	def new
 		@article=Article.new
@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
 
 	def create
 	  @article = Article.new(article_params)
+	  @article.published_at = Time.now
 	  if @article.save
 	  	redirect_to @article
 	  else
@@ -45,6 +46,6 @@ class ArticlesController < ApplicationController
 
 	private
 	  def article_params
-	    params.require(:article).permit(:title, :text)
+	    params.require(:article).permit(:title, :text, :published_at, :description, :category_id)
 	  end
 	end
